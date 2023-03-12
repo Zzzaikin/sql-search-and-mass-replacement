@@ -2,7 +2,7 @@
  * Create procedure, which replace text and binary entires.
  */
 CREATE OR REPLACE 
-    PROCEDURE MassReplaceThroughoutTheDatabase(IN oldValue text, IN newValue text, IN rebrandBinaryColumns boolean = true)
+    PROCEDURE MassReplace(IN oldValue text, IN newValue text, IN replaceInBinaryColumns boolean = true)
 LANGUAGE plpgsql
 AS $$
     BEGIN    
@@ -41,7 +41,7 @@ AS $$
                 END IF;
     
                 IF dtype = 'bytea'
-                    AND rebrandBinaryColumns = true
+                AND replaceInBinaryColumns = true
                 THEN
                     query := 'UPDATE "' || tbl || '" SET "' || col || '" = DECODE(REPLACE(ENCODE("' || col || '", ''escape''), ''' || oldValue || ''', ''' || newValue || '''),''escape'') WHERE "' || col || '" LIKE ''%' || oldValue || '%'';';
                 ELSIF dtype != 'bytea'

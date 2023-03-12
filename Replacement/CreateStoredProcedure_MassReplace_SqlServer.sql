@@ -2,14 +2,14 @@
  * Create procedure, which replace text and binary entires.
  */
 
-DROP PROCEDURE IF EXISTS ReplaceThroughoutTheDatabase
+DROP PROCEDURE IF EXISTS MassReplace
 GO
 
-CREATE PROCEDURE RebrandThroughoutTheDatabase
+CREATE PROCEDURE MassReplace
     @oldValue VARCHAR(MAX),
     @newValue VARCHAR(MAX),
     @collateName VARCHAR(MAX),
-    @rebrandBinaryColumns BIT
+    @replaceInBinaryColumns BIT
 AS
     DECLARE curs CURSOR FOR
     SELECT 
@@ -47,7 +47,7 @@ AS
     WHILE @@FETCH_STATUS = 0
     BEGIN
         IF (@columnType = 'varbinary')
-        AND @rebrandBinaryColumns = 1
+        AND @replaceInBinaryColumns = 1
         BEGIN
             SET @query = 'UPDATE [' + @tableName + '] SET [' + @columnName + '] = CONVERT(VARBINARY(MAX), REPLACE(CONVERT(VARCHAR(MAX), [' + @columnName + ']), ''' + @oldValue +  ''', ''' + @newValue + ''' COLLATE ' + @collateName + ')) WHERE [' + @columnName + '] LIKE ''%' + @oldValue + '%'' COLLATE ' + @collateName + ';';
         END
