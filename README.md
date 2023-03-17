@@ -35,7 +35,7 @@ CALL MassReplace('Example entry', 'New example entry', true);
 ```
 PostgreSQL stored procedures works only with case sensitive.
 
-## Additional
+# Additional
 Also you can search uuids in PostgreSQL and uniqueidentifiers in sql-server like that:
 
 sql-server:
