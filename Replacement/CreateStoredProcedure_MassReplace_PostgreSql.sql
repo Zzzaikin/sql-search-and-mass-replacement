@@ -25,7 +25,7 @@ AS $$
                         'bytea'
                     )
                     AND information_schema.columns.table_schema = 'public'
-                    AND information_schema.views.table_name IS NULL
+                    AND information_schema.views.table_name IS NULL;
     
         	        tbl text;
         	        col text;
