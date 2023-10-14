@@ -14,7 +14,7 @@ Replacement entries:
 ```sql
 EXECUTE MassReplace @oldValue = 'Example entry', @newValue = 'New example entry', @collateName = 'Cyrillic_General_CS_AS', @replaceInBinaryColumns = 1
 ```
-Also you can choose another collate. Check collates in you server with:
+Also you can choose another collate. Check collates in your server with:
 ```sql
 SELECT name, description
 FROM fn_helpcollations();
