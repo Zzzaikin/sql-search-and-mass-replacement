@@ -19,7 +19,7 @@ Also you can choose another collate. Check collates in your server with:
 SELECT name, description
 FROM fn_helpcollations();
 ```
-Suffix "CS" in collateName indicates that search/replacement will case sensitive. "CI" indicate reverse - case insensitive.
+Suffix "CS" in collateName indicates that search/replacement will case sensitive. "CI" indicates reverse - case insensitive.
 
 
 ## PostgreSQL
