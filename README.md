@@ -49,4 +49,4 @@ CALL SearchEntry('c53s032b-d6c8-40d1-bg3d-01d34984b57c', true)
 ```
 But that's not supported in replacement. Just because it will call primary and foreign key constraint errors.
 
-You can use searchInBinaryColumns\replaceInBinaryColumns parameter for search and replacement in binary columns additionaly.
+You can use searchInBinaryColumns\replaceInBinaryColumns parameter for search or replacement in binary columns additionaly.
